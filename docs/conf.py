@@ -34,15 +34,16 @@ autodoc_typehints = "description"
 autodoc_mock_imports = ["numba"]
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", {}),
-    "numpy": ("https://numpy.org/doc/stable/", {}),
-    "matplotlib": ("https://matplotlib.org/stable/", {}),
+    "python": ("https://docs.python.org/3", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "matplotlib": ("https://matplotlib.org/stable/", None),
 }
+
 
 myst_enable_extensions = ["colon_fence", "deflist", "fieldlist"]
 
-templates_path = ["_templates"]
+html_static_path = ["_static"] if os.path.isdir(os.path.join(os.path.dirname(__file__), "_static")) else []
+templates_path = ["_templates"] if os.path.isdir(os.path.join(os.path.dirname(__file__), "_templates")) else []
 exclude_patterns = []
 html_theme = "sphinx_rtd_theme"
-html_static_path = ["_static"]
 html_theme_options = {"collapse_navigation": False, "navigation_depth": 3, "display_version": True}
