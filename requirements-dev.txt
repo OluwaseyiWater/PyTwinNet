@@ -1,0 +1,9 @@
+
+pytest
+sphinx
+sphinx-rtd-theme
+matplotlib
+numpy
+PyYAML
+numba
+pre-commit

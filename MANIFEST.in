@@ -1,0 +1,5 @@
+recursive-include configs *.yaml
+recursive-include docs *.md *.rst *.png *.jpg *.jpeg
+recursive-include examples *.py
+prune **/__pycache__
+prune .venv

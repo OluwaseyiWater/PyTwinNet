@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytwinnet"
+version = "0.1.0"
+description = "PyTwinNet: Wireless Digital Twin & Network Optimization Library"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Oluwaseyi Giwa", email = "giwaoluwaseyi130@gmail.com" }
+]
+keywords = ["wireless", "digital twin", "network optimization", "simulation", "RIS", "5G", "Wi-Fi"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Telecommunications Industry",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering",
+  "Topic :: System :: Networking",
+]
+
+# keep runtime deps minimal; extras add optional features
+dependencies = [
+  "numpy>=1.23",
+  "matplotlib>=3.6",
+]
+
+[project.optional-dependencies]
+accel = ["numba>=0.58"]
+cli = ["PyYAML>=6.0.1"]
+docs = ["sphinx>=7", "sphinx-rtd-theme>=2.0.0", "myst-parser>=2.0.0"]
+dev = ["pytest>=7", "pytest-cov>=4", "black>=24.4", "isort>=5.13", "flake8>=7.0", "pre-commit>=3.6"]
+all = ["pytwinnet[accel,cli,docs,dev]"]
+
+[project.scripts]
+# lets users run:  pytwinnet run configs/het_net_placement.yaml
+pytwinnet = "pytwinnet.cli.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pytwinnet*"]
+
+[tool.setuptools.package-data]
+"pytwinnet" = ["../configs/*.yaml"]  # include your sample configs in sdist/wheel
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+markers = ["perf: performance smoke tests (may be slower)"]

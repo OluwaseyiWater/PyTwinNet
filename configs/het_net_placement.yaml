@@ -1,0 +1,36 @@
+environment:
+  dimensions_m: [400, 400, 30]
+propagation:
+  model: ris_beam
+  ris:
+    position: [200, 200, 10]
+    element_count: 128
+  extra_loss_db: 3.0
+nodes:
+  - {id: gNB-1, role: gNB, position: [50, 50, 10],  tx_power_dbm: 32, ant_gain_dbi: 5, f_hz: 3.5e9}
+  - {id: gNB-2, role: gNB, position: [350, 350, 10], tx_power_dbm: 32, ant_gain_dbi: 5, f_hz: 3.5e9}
+  - {id: UE-1, position: [300, 120, 1.5]}
+  - {id: UE-2, position: [120, 300, 1.5]}
+scenario:
+  events:
+    - {type: ris_beam, target: UE-1}
+optimize:
+  method: random_search
+  node_ids: [gNB-1]
+  bounds: [[50, 350], [50, 350]]
+  samples: 150
+  fixed_z: 10.0
+  objective:
+    type: sum_throughput
+    tx_id: gNB-1
+    efficiency: 0.75
+visualization:
+  heatmap:
+    enabled: true
+    tx_id: gNB-1
+    interferer_ids: [gNB-2]
+    xlim: [0, 400]
+    ylim: [0, 400]
+    resolution: 250
+    output: heatmap.png
+output: report.json

@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: pytwinnet
+Version: 0.1.0
+Summary: PyTwinNet: Wireless Digital Twin & Network Optimization Library
+Author-email: Oluwaseyi Giwa <giwaoluwaseyi130@gmail.com>
+License: MIT
+Keywords: wireless,digital twin,network optimization,simulation,RIS,5G,Wi-Fi
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: System :: Networking
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.23
+Requires-Dist: matplotlib>=3.6
+Provides-Extra: accel
+Requires-Dist: numba>=0.58; extra == "accel"
+Provides-Extra: cli
+Requires-Dist: PyYAML>=6.0.1; extra == "cli"
+Provides-Extra: docs
+Requires-Dist: sphinx>=7; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=2.0.0; extra == "docs"
+Requires-Dist: myst-parser>=2.0.0; extra == "docs"
+Provides-Extra: dev
+Requires-Dist: pytest>=7; extra == "dev"
+Requires-Dist: pytest-cov>=4; extra == "dev"
+Requires-Dist: black>=24.4; extra == "dev"
+Requires-Dist: isort>=5.13; extra == "dev"
+Requires-Dist: flake8>=7.0; extra == "dev"
+Requires-Dist: pre-commit>=3.6; extra == "dev"
+Provides-Extra: all
+Requires-Dist: pytwinnet[accel,cli,dev,docs]; extra == "all"
+
+# PyTwinNet
+
+Wireless **Digital Twin** & **Network Optimization** library for research and prototyping.
+
+## Install
+
+```bash
+pip install pytwinnet                 # core
+pip install pytwinnet[accel,cli]      # with Numba + CLI
+pip install pytwinnet[all]            # everything (dev/docs too)
+
+
+## Quickstart
+
+import pytwinnet as ptn
+from pytwinnet.physics import Environment, FreeSpacePathLoss
+
+twin = ptn.DigitalTwin()
+twin.set_environment(Environment(dimensions_m=(300,300,30)))
+twin.set_propagation_model(FreeSpacePathLoss())
+
+
+
+### `LICENSE`
+Use MIT (or your preferred). MIT example is fine.
+
+## Step 3: Ensure `__version__` is exposed
+
+In `pytwinnet/__init__.py`:
+
+```python
+__version__ = "0.1.0"
+
+from .core.digital_twin import DigitalTwin
+from .core.network import Network
+from .core.node import WirelessNode, TransceiverProperties
+

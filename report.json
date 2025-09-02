@@ -1,0 +1,14 @@
+{
+  "optimize": {
+    "best_score": 760737474.0310168,
+    "best_positions": {
+      "gNB-1": [
+        301.2983523106937,
+        125.27979944664112,
+        10.0
+      ]
+    },
+    "evaluations": 150
+  },
+  "heatmap": "heatmap.png"
+}
