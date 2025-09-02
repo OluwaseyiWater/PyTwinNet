@@ -1,15 +1,17 @@
-
 from __future__ import annotations
 import os, sys
 from datetime import date
 
-# Add project root so autodoc finds pytwinnet
+# Make package importable
 sys.path.insert(0, os.path.abspath(".."))
 
+# Headless plotting for safety
+os.environ.setdefault("MPLBACKEND", "Agg")
+
 project = "PyTwinNet"
-author = "Oluwaseyi Giwa"
+author = "Your Name"
 copyright = f"{date.today().year}, {author}"
-# Keep in sync with pytwinnet/__about__.py if you want it shown
+# Keep in sync with pytwinnet/__about__.py if you want to display it
 release = "0.1.2"
 
 extensions = [
@@ -24,9 +26,12 @@ extensions = [
     "sphinx_design",
 ]
 
+# --- Key safety settings ---
 autosummary_generate = True
 autodoc_default_options = {"members": True, "undoc-members": False, "show-inheritance": True}
 autodoc_typehints = "description"
+# If numba isn't available on RTD image, mock it to avoid import errors
+autodoc_mock_imports = ["numba"]
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", {}),

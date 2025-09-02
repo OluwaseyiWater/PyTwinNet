@@ -26,6 +26,7 @@ examples/ris_enhanced_demo.py
 examples/sinr_heatmap_demo.py
 examples/vectorized_assoc_demo.py
 examples/what_if_throughput.py
+pytwinnet/__about__.py
 pytwinnet/__init__.py
 pytwinnet.egg-info/PKG-INFO
 pytwinnet.egg-info/SOURCES.txt
