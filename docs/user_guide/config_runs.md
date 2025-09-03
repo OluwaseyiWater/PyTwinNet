@@ -6,7 +6,6 @@ pytwinnet run configs/het_net_placement.yaml
 
 ``go
 
-## `docs/examples/index.rst`
 ```rst
 Examples
 ========
@@ -15,3 +14,17 @@ Examples
    :maxdepth: 1
 
    het_net_placement
+
+```markdown
+Keys
+environment.dimensions_m
+
+propagation.model
+
+nodes
+
+scenario.events
+
+optimize
+
+visualization.heatmap

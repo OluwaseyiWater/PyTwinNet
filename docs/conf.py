@@ -2,17 +2,14 @@ from __future__ import annotations
 import os, sys
 from datetime import date
 
-# Make package importable
+# Add repo root so autodoc can import pytwinnet
 sys.path.insert(0, os.path.abspath(".."))
-
-# Headless plotting for safety
 os.environ.setdefault("MPLBACKEND", "Agg")
 
 project = "PyTwinNet"
-author = "Your Name"
+author = "Oluwaseyi Giwa"
 copyright = f"{date.today().year}, {author}"
-# Keep in sync with pytwinnet/__about__.py if you want to display it
-release = "0.1.2"
+release = os.environ.get("PYTWINNET_DOCS_VERSION", "latest")
 
 extensions = [
     "myst_parser",
@@ -21,17 +18,17 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
     "sphinx_copybutton",
     "sphinx_autodoc_typehints",
     "sphinx_design",
 ]
 
-# --- Key safety settings ---
+autodoc_mock_imports = ["numba"]
+
 autosummary_generate = True
 autodoc_default_options = {"members": True, "undoc-members": False, "show-inheritance": True}
 autodoc_typehints = "description"
-# If numba isn't available on RTD image, mock it to avoid import errors
-autodoc_mock_imports = ["numba"]
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
@@ -39,11 +36,18 @@ intersphinx_mapping = {
     "matplotlib": ("https://matplotlib.org/stable/", None),
 }
 
-
-myst_enable_extensions = ["colon_fence", "deflist", "fieldlist"]
-
-html_static_path = ["_static"] if os.path.isdir(os.path.join(os.path.dirname(__file__), "_static")) else []
+myst_enable_extensions = [
+    "colon_fence", "deflist", "fieldlist",
+    "dollarmath",           
+    "amsmath",              
+]
 templates_path = ["_templates"] if os.path.isdir(os.path.join(os.path.dirname(__file__), "_templates")) else []
-exclude_patterns = []
+html_static_path = ["_static"] if os.path.isdir(os.path.join(os.path.dirname(__file__), "_static")) else []
+
 html_theme = "sphinx_rtd_theme"
 html_theme_options = {"collapse_navigation": False, "navigation_depth": 3, "display_version": True}
+
+html_logo = "_static/img/pytwinnet-logo.svg"
+html_favicon = "_static/img/favicon.svg"
+html_css_files = ["css/custom.css"]
+html_js_files = ["js/custom.js"]

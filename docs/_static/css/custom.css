@@ -1,0 +1,21 @@
+:root {
+  --ptn-accent: #5b8cff;
+  --ptn-accent-2: #00d1b2;
+  --ptn-bg: #0a0f1a;
+}
+
+html[data-theme="dark"] {
+  --ptn-text: #eaeef6;
+}
+
+.wy-nav-top, .wy-side-nav-search {
+  background: linear-gradient(90deg, var(--ptn-accent) 0%, var(--ptn-accent-2) 100%) !important;
+}
+
+.rst-content h1, .rst-content h2 {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+a { color: #2a6ef5; }
+a:hover { color: #1857d8; }

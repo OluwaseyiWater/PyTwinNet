@@ -8,4 +8,3 @@ Run:
 
 .. literalinclude:: ../../configs/het_net_placement.yaml
    :language: yaml
-   :lines: 1-200
