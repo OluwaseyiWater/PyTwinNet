@@ -51,3 +51,9 @@ html_logo = "_static/img/pytwinnet-logo.svg"
 html_favicon = "_static/img/favicon.svg"
 html_css_files = ["css/custom.css"]
 html_js_files = ["js/custom.js"]
+extensions.append("sphinx_sitemap")
+html_baseurl = "https://pytwinnet.readthedocs.io/en/latest/"
+sitemap_url_scheme = "{link}"
+html_extra_path = ["robots.txt"]
+
+

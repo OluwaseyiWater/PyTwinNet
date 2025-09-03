@@ -1,6 +1,31 @@
 {% extends "!layout.html" %}
 {% block extrahead %}
   {{ super() }}
-  <meta name="theme-color" content="#0a0f1a">
-  <meta name="color-scheme" content="light dark">
-{% endblock %}
+  <meta name="description" content="PyTwinNet — Wireless Digital Twin & Network Optimization library for research and engineering.">
+  <meta property="og:title" content="PyTwinNet: Wireless Digital Twin & Network Optimization">
+  <meta property="og:description" content="Open-source Python library for wireless digital twins, optimization, and AI-driven research.">
+  <meta property="og:image" content="https://pytwinnet.readthedocs.io/en/latest/_static/img/social-card.png">
+  <meta property="og:type" content="website">
+  <meta name="google-site-verification" content="7n528AZivm700gOel1sKzOTSG58aDLxl_AEyPfabhdg" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://pytwinnet.readthedocs.io/en/latest/_static/img/social-card.png">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PyTwinNet",
+  "applicationCategory": "ScientificSoftware",
+  "operatingSystem": "Cross-platform",
+  "programmingLanguage": "Python",
+  "url": "https://pytwinnet.readthedocs.io/en/latest/",
+  "softwareVersion": "{{ release | e }}",
+  "license": "https://spdx.org/licenses/MIT.html",
+  "description": "Wireless Digital Twin & Network Optimization library.",
+  "sameAs": [
+    "https://pypi.org/project/pytwinnet/",
+    "https://github.com/OluwaseyiWater/PyTwinNet"
+  ]
+}
+</script>
+
+  {% endblock %}

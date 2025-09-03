@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pytwinnet.readthedocs.io/en/latest/sitemap.xml
