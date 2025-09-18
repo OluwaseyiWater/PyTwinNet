@@ -34,6 +34,13 @@ PyTwinNet Documentation
 
       End-to-end scenarios with code & figures.
 
+   .. grid-item-card:: More Examples
+      :link: index
+      :text-align: left
+      :shadow:
+
+      End-to-end scenarios with code & figures.
+
    .. grid-item-card:: API Reference
       :link: api/index
       :text-align: left
