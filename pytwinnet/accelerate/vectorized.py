@@ -70,7 +70,6 @@ def noise_dbm_vector(
     -> (R,)
     """
     # -174 dBm/Hz at 290K baseline
-    # Adjust for temperature linearly in power domain -> +10*log10(T/290)
     temp_adj_db = 10.0 * np.log10(np.asarray(temperature_k, dtype=float) / 290.0)
     bw = np.asarray(bandwidth_hz, dtype=float)
     nf = np.asarray(noise_figure_db, dtype=float)

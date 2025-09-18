@@ -1,7 +1,7 @@
 import numpy as np
 from pytwinnet.physics import FreeSpacePathLoss
 from pytwinnet.accelerate.vectorized import fspl_matrix_db
-from pytwinnet.core.node import WirelessNode, TransceiverProperties   # ← add TransceiverProperties
+from pytwinnet.core.node import WirelessNode, TransceiverProperties   #TransceiverProperties
 from pytwinnet.physics.environment import Environment
 
 def test_fspl_vector_matches_scalar():
@@ -15,7 +15,6 @@ def test_fspl_vector_matches_scalar():
 
     for i in range(5):
         for j in range(7):
-            # Ensure the TX node uses the SAME carrier frequency as the vectorized call
             tx = WirelessNode(
                 "t",
                 position=tuple(tx_xyz[i]),

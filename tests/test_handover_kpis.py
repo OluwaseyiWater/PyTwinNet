@@ -21,10 +21,9 @@ def test_ho_kpis():
 
     # move clearly toward gNB-2 and allow time to pass
     ue = twin.network.get_node_by_id("UE-1")
-    ue.move_to((280,150,1.5))                     # ← further than 260 to make the margin obvious
+    ue.move_to((280,150,1.5))                    
     serving = ho.step_logged(twin, "UE-1", serving, 0.2)
 
-    # (Optional) one more check to ensure state settled
     serving = ho.step_logged(twin, "UE-1", serving, 0.3)
 
     k = ho.kpis()

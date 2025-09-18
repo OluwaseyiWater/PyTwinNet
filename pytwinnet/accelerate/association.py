@@ -32,10 +32,9 @@ def max_rsrp_association_vectorized(
 
     tx_xyz, tx_dbm, gt_dbi = _stack_positions(txs)
     ue_xyz, _, gr_dbi = _stack_positions(ues)
-    f_hz = txs[0].transceiver_properties.carrier_frequency_hz  # assume same for now
+    f_hz = txs[0].transceiver_properties.carrier_frequency_hz  
 
     # Build PL matrix via underlying scalar model by matching FSPL formula for speed.
-    # If pm is not FSPL, we fall back to slow path.
     from ..physics.propagation import FreeSpacePathLoss
     if isinstance(pm, FreeSpacePathLoss):
         pl_db = fspl_matrix_db(tx_xyz, ue_xyz, f_hz)  # (T,R)

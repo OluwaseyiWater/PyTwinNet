@@ -71,6 +71,6 @@ class FadedModel(PropagationModel):
         else:
             K_lin = 10 ** (self.K_dB / 10.0)
             g = self._rician_gain(rng, K_lin)
-        # add fading loss in dB (negative gain -> positive extra loss)
+        # fading loss in dB (negative gain -> positive extra loss)
         fading_loss_db = -10.0 * math.log10(max(g, 1e-12))
         return pl + fading_loss_db

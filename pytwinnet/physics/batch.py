@@ -39,9 +39,9 @@ def path_loss_matrix(
         f_hz = tx_nodes[0].transceiver_properties.carrier_frequency_hz
         return fspl_matrix_db(tx_xyz, rx_positions, f_hz)
 
-    # Optional vectorized API hook (future-friendly)
+    # Optional vectorized API hook
     if hasattr(pm, "calculate_path_loss_batch"):
-        return pm.calculate_path_loss_batch(tx_nodes, rx_positions, env)  # type: ignore[attr-defined]
+        return pm.calculate_path_loss_batch(tx_nodes, rx_positions, env)  
 
     # Scalar fallback (minimize allocations)
     pl = np.empty((T, R), dtype=float)

@@ -2,6 +2,9 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from ..core.digital_twin import DigitalTwin
+from ..physics.link_budget import rx_power_dbm, noise_power_dbm, sinr_db, shannon_throughput_bps
+from ..physics.propagation import PropagationModel
+from ..physics.environment import Environment
 
 class Objective(ABC):
     @abstractmethod
@@ -21,9 +24,7 @@ class MinimizePowerConsumption(Objective):
             total_power += float(node.transceiver_properties.transmit_power_dbm)
         return -total_power
 
-from ..physics.link_budget import rx_power_dbm, noise_power_dbm, sinr_db, shannon_throughput_bps
-from ..physics.propagation import PropagationModel
-from ..physics.environment import Environment
+
 
 class SumThroughputObjective(Objective):
     def __init__(self, tx_id: str, efficiency: float = 1.0):
