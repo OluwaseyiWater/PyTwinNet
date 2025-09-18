@@ -1,5 +1,5 @@
 PyTwinNet Package
-=================
+==================
 
 .. autosummary::
    :toctree: _autosummary
