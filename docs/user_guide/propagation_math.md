@@ -8,7 +8,7 @@ $P_{rx} = P_{tx} + G_t + G_r - \mathrm{FSPL}(d,f)$
 $$
 \begin{equation*}
 \mathrm{SINR}_{j} = \frac{S_{s, j}}{\sum_{i \in \mathcal{I}} S_{i, j} + N_0}
-\end{equatio*}
+\end{equation*}
 $$
 
 ## Throughput
