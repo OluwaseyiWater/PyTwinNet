@@ -1,9 +1,9 @@
 # Config-Driven Experiments
 
 Run from YAML:
-```bash
+```shell
 pytwinnet run configs/het_net_placement.yaml
-
+```
 ``go
 
 ```rst
@@ -28,3 +28,4 @@ scenario.events
 optimize
 
 visualization.heatmap
+```
