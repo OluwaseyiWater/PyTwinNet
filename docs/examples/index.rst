@@ -1,7 +1,7 @@
 
 ```rst
 Examples
-========
+==========
 
 .. toctree::
    :maxdepth: 1
