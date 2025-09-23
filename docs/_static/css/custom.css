@@ -1,6 +1,8 @@
+@import url("theme.css");
+
 :root {
-  --ptn-accent: #5b8cff;
-  --ptn-accent-2: #00d1b2;
+  --ptn-accent: #138615;
+  --ptn-accent-2: #78d98b;
   --ptn-bg: #0a0f1a;
 }
 
@@ -19,3 +21,35 @@ html[data-theme="dark"] {
 
 a { color: #2a6ef5; }
 a:hover { color: #1857d8; }
+
+.clickcard {
+  color: white !important;
+  background-color: rgba(29, 85, 110, var(--block-bg-opacity));
+  /* set the color of the text to white regardless of the theme */
+}
+
+
+.dark-light {
+  /* disable hyperlink for image */
+  pointer-events: none;
+
+  /* set blend mode to normal to prevent darkening */
+  mix-blend-mode: normal;
+
+  /* set background color to transparent */
+  background-color: transparent !important;
+
+  border-radius: 10px;
+}
+
+.system {
+  /* disable hyperlink for image */
+  pointer-events: none;
+
+  /* set blend mode to normal to prevent darkening */
+  mix-blend-mode: normal;
+}
+
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%;  /* default is 60em */
+}
